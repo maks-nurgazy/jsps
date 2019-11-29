@@ -2,7 +2,9 @@ package com.telusko.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,12 +13,11 @@ import javax.servlet.http.HttpSession;
 public class HomeController
 {
     @RequestMapping("home")
-    public String home(HttpServletRequest request)
+    public ModelAndView home(Alien alien)
     {
-        HttpSession session = request.getSession();
-        String name = request.getParameter("name");
-        System.out.println("hi "+name);
-        session.setAttribute("name",name);
-        return "home";
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("home");
+        mv.addObject("alien",alien);
+        return mv;
     }
 }

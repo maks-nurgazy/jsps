@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    My name is: ${name}
+    My name is: ${alien.aid},${alien.aname},${alien.lang}
 
 </body>
 </html>
